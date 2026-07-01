@@ -1,0 +1,38 @@
+{
+  "benign_weather_openai.json": [],
+  "benign_sales_report_mcp.json": [],
+  "benign_docs_research_langchain.json": [],
+  "malicious_github_issue_exfil_openai.json": [
+    "TW001",
+    "TW002",
+    "TW015",
+    "TW020",
+    "TW022",
+    "TW023",
+    "TW025"
+  ],
+  "malicious_curl_pipe_rce_mcp.json": [
+    "TW012",
+    "TW019",
+    "TW022"
+  ],
+  "malicious_ssh_key_exfil_langchain.json": [
+    "TW003",
+    "TW015",
+    "TW016",
+    "TW020",
+    "TW021",
+    "TW024",
+    "TW025"
+  ],
+  "malicious_rogue_mcp_shadow_flood_mcp.json": [
+    "TW013",
+    "TW014",
+    "TW019",
+    "TW022",
+    "TW024",
+    "TW025",
+    "TW027",
+    "TW028"
+  ]
+}

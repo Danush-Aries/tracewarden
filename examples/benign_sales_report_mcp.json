@@ -1,0 +1,33 @@
+{
+  "format": "mcp",
+  "mcp_version": "1.0",
+  "client": "analytics-agent",
+  "calls": [
+    {
+      "tool": "query_database",
+      "server": "warehouse",
+      "arguments": {
+        "sql": "SELECT country, SUM(revenue) AS total FROM sales GROUP BY country ORDER BY total DESC LIMIT 5"
+      },
+      "result": "country | total\nGermany | 1240000\nFrance | 980000\nSpain | 610000\nItaly | 540000\nPoland | 310000"
+    },
+    {
+      "tool": "summarize_metrics",
+      "server": "analytics",
+      "arguments": {
+        "data": "top 5 countries by revenue"
+      },
+      "result": "Germany leads at 1.24M, followed by France at 0.98M. Combined top-5 revenue is 3.68M."
+    },
+    {
+      "tool": "render_chart",
+      "server": "analytics",
+      "arguments": {
+        "type": "bar",
+        "title": "Revenue by country",
+        "output": "charts/revenue_by_country.png"
+      },
+      "result": "chart written to charts/revenue_by_country.png"
+    }
+  ]
+}

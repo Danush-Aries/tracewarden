@@ -1,0 +1,38 @@
+{
+  "format": "openai",
+  "model": "gpt-4o-mini",
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a helpful weather assistant. Only answer weather questions."
+    },
+    {
+      "role": "user",
+      "content": "What's the weather in Paris today?"
+    },
+    {
+      "role": "assistant",
+      "content": null,
+      "tool_calls": [
+        {
+          "id": "call_w1",
+          "type": "function",
+          "function": {
+            "name": "get_current_weather",
+            "arguments": "{\"location\": \"Paris, France\", \"units\": \"celsius\"}"
+          }
+        }
+      ]
+    },
+    {
+      "role": "tool",
+      "tool_call_id": "call_w1",
+      "name": "get_current_weather",
+      "content": "Paris, France: 18 degrees Celsius, partly cloudy, wind 12 km/h, humidity 55 percent."
+    },
+    {
+      "role": "assistant",
+      "content": "It's currently 18 degrees Celsius and partly cloudy in Paris, with a light 12 km/h wind."
+    }
+  ]
+}

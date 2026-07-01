@@ -1,0 +1,25 @@
+{
+  "format": "langchain",
+  "input": "How do I configure automatic retries in the Python requests library?",
+  "intermediate_steps": [
+    {
+      "action": {
+        "tool": "web_search",
+        "tool_input": {
+          "query": "python requests retry configuration HTTPAdapter"
+        }
+      },
+      "observation": "The recommended approach is to use urllib3 Retry together with a HTTPAdapter. Configure the total number of retries and a backoff_factor, then mount the adapter on a Session for both http and https."
+    },
+    {
+      "action": {
+        "tool": "read_documentation",
+        "tool_input": {
+          "topic": "requests.adapters.HTTPAdapter"
+        }
+      },
+      "observation": "HTTPAdapter accepts a max_retries argument. Pass a urllib3 Retry(total=5, backoff_factor=0.3) instance to control retry behaviour."
+    }
+  ],
+  "output": "Create a urllib3 Retry object (for example Retry(total=5, backoff_factor=0.3)), wrap it in a requests HTTPAdapter, and mount that adapter on your Session for the http and https prefixes."
+}
